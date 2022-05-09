@@ -23,6 +23,8 @@
         <module>msb-dongbao-service/msb-dongbao-sms</module>
         <module>msb-dongbao-service/msb-dongbao-cms</module>
         <module>msb-dongbao-application</module>
+        <module>msb-dongbao-generator</module>
+        <module>msb-dongbao-job</module>
     </modules>
 
 
