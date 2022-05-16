@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pms.db.dao.ProductDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pms.model.entity.Product">
+        <id column="id" property="id" />
+        <result column="product_no" property="productNo" />
+        <result column="product_name" property="productName" />
+        <result column="rel_tenant_id" property="relTenantId" />
+        <result column="rel_default_sku_id" property="relDefaultSkuId" />
+        <result column="rel_category1_id" property="relCategory1Id" />
+        <result column="rel_category2_id" property="relCategory2Id" />
+        <result column="rel_category3_id" property="relCategory3Id" />
+        <result column="spec_options" property="specOptions" />
+        <result column="price" property="price" />
+        <result column="default_pic" property="defaultPic" />
+        <result column="enabled" property="enabled" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uname" property="modifiedUname" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, product_no, product_name, rel_tenant_id, rel_default_sku_id, rel_category1_id, rel_category2_id, rel_category3_id, spec_options, price, default_pic, enabled, gmt_create, gmt_modified, modified_uid, create_uid, create_uname, modified_uname
+    </sql>
+
+</mapper>

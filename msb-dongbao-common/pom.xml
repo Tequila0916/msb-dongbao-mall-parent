@@ -10,15 +10,14 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>msb-dongbao-common</artifactId>
+    <name>msb-dongbao-common</name>
+    <description>公共服务父pom</description>
+
     <packaging>pom</packaging>
+
     <modules>
         <module>msb-dongbao-common-base</module>
         <module>msb-dongbao-common-util</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
 </project>

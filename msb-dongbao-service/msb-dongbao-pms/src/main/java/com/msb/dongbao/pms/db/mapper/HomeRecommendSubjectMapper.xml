@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pms.db.dao.HomeRecommendSubjectDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pms.model.entity.HomeRecommendSubject">
+        <id column="id" property="id" />
+        <result column="subject_id" property="subjectId" />
+        <result column="subject_name" property="subjectName" />
+        <result column="recommend_status" property="recommendStatus" />
+        <result column="sort" property="sort" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="enable" property="enable" />
+        <result column="merchant_id" property="merchantId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, subject_id, subject_name, recommend_status, sort, gmt_create, gmt_modified, create_uid, create_uname, modified_uid, modified_uname, enable, merchant_id
+    </sql>
+
+
+    <!-- 首页查询映射结果 -->
+    <resultMap id="HomeResultMap" type="com.msb.dongbao.pms.model.dto.HomeRecommendSubjectDTO">
+        <id column="id" property="id" />
+        <result column="subject_id" property="subjectId" />
+        <result column="subject_name" property="subjectName" />
+        <result column="recommend_status" property="recommendStatus" />
+        <result column="sort" property="sort" />
+        <result column="album_pics" property="albumPics" />
+        <result column="hot_words" property="hotWords" />
+        <result column="pic" property="pic" />
+        <collection property="productList" column="{subjectId=subject_id}" select="selectProductRelationByProductId"/>
+    </resultMap>
+
+    <!-- 查询首页推荐的专题信息 -->
+    <select id="selectSubjectForHome" resultMap="HomeResultMap">
+        SELECT
+            hrs.id,
+            hrs.subject_id,
+            cs.title as subject_name,
+            cs.album_pics,
+            cs.hot_words,
+            cs.pic
+        FROM
+            `home_recommend_subject` hrs
+            LEFT JOIN cms_subject cs ON hrs.subject_id = cs.id
+        WHERE
+            hrs.recommend_status = 1
+        limit 4;
+    </select>
+
+    <!-- 查询专题关联的商品列表-->
+    <select id="selectProductRelationByProductId" resultMap="com.msb.dongbao.pms.db.dao.ProductDao.BaseResultMap">
+        SELECT
+            p.id,
+            p.product_name,
+            p.price,
+            p.sales_num,
+            p.default_pic,
+            p.rel_category3_id,
+            p.rel_tenant_id
+        FROM
+            cms_subject_product_relation cspr
+            LEFT JOIN product p ON cspr.product_id = p.id
+        WHERE
+            cspr.subject_id = #{subjectId};
+    </select>
+
+
+
+
+</mapper>

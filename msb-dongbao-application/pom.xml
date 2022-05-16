@@ -11,14 +11,11 @@
 
     <artifactId>msb-dongbao-application</artifactId>
     <packaging>pom</packaging>
+    <name>msb-dongbao-application</name>
+    <description>应用服务层父pom</description>
     <modules>
-        <module>msb-dongbao-manager-web</module>
+        <!--<module>msb-dongbao-manager-web</module>-->
         <module>msb-dongbao-portal-web</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
 
 </project>

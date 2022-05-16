@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pay.db.dao.PayTransactionDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pay.model.entity.PayTransaction">
+        <id column="id" property="id" />
+        <result column="rel_app_id" property="relAppId" />
+        <result column="rel_order_no" property="relOrderNo" />
+        <result column="pay_channel_id" property="payChannelId" />
+        <result column="transaction_no" property="transactionNo" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="total_fee" property="totalFee" />
+        <result column="pay_fee" property="payFee" />
+        <result column="expire_time" property="expireTime" />
+        <result column="payment_time" property="paymentTime" />
+        <result column="notify_time" property="notifyTime" />
+        <result column="order_status" property="orderStatus" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="enable" property="enable" />
+        <result column="merchant_id" property="merchantId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, rel_app_id, rel_order_no, pay_channel_id, transaction_no, trade_no, total_fee, pay_fee, expire_time, payment_time, notify_time, order_status, gmt_create, gmt_modified, create_uid, create_uname, modified_uid, modified_uname, enable, merchant_id
+    </sql>
+
+</mapper>

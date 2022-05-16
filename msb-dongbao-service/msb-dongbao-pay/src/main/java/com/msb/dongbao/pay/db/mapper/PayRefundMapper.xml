@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pay.db.dao.PayRefundDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pay.model.entity.PayRefund">
+        <id column="id" property="id" />
+        <result column="rel_app_id" property="relAppId" />
+        <result column="rel_refund_order_no" property="relRefundOrderNo" />
+        <result column="rel_transaction_no" property="relTransactionNo" />
+        <result column="trade_no" property="tradeNo" />
+        <result column="refund_no" property="refundNo" />
+        <result column="pay_method_id" property="payMethodId" />
+        <result column="refund_fee" property="refundFee" />
+        <result column="refund_reason" property="refundReason" />
+        <result column="refund_type" property="refundType" />
+        <result column="refund_method" property="refundMethod" />
+        <result column="refund_status" property="refundStatus" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="enable" property="enable" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, rel_app_id, rel_refund_order_no, rel_transaction_no, trade_no, refund_no, pay_method_id, refund_fee, refund_reason, refund_type, refund_method, refund_status, gmt_create, gmt_modified, create_uid, create_uname, modified_uid, modified_uname, enable
+    </sql>
+
+</mapper>

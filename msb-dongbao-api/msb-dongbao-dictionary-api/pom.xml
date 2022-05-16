@@ -10,10 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>msb-dongbao-dictionary-api</artifactId>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <name>msb-dongbao-dictionary-api</name>
+    <description>字典数据服务API</description>
 
 </project>

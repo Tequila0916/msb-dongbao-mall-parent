@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.cms.db.dao.CmsSubjectDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.cms.model.entity.CmsSubject">
+        <id column="id" property="id" />
+        <result column="subject_category_id" property="subjectCategoryId" />
+        <result column="title" property="title" />
+        <result column="pic" property="pic" />
+        <result column="product_count" property="productCount" />
+        <result column="recommend_status" property="recommendStatus" />
+        <result column="create_time" property="createTime" />
+        <result column="collect_count" property="collectCount" />
+        <result column="read_count" property="readCount" />
+        <result column="comment_count" property="commentCount" />
+        <result column="album_pics" property="albumPics" />
+        <result column="description" property="description" />
+        <result column="show_status" property="showStatus" />
+        <result column="content" property="content" />
+        <result column="forward_count" property="forwardCount" />
+        <result column="hot_words" property="hotWords" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="enable" property="enable" />
+        <result column="merchant_id" property="merchantId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, subject_category_id, title, pic, product_count, recommend_status, create_time, collect_count, read_count, comment_count, album_pics, description, show_status, content, forward_count, hot_words, gmt_create, gmt_modified, create_uid, create_uname, modified_uid, modified_uname, enable, merchant_id
+    </sql>
+
+</mapper>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pms.db.dao.HomeRecommendProductDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pms.model.entity.HomeRecommendProduct">
+        <id column="id" property="id" />
+        <result column="product_id" property="productId" />
+        <result column="product_name" property="productName" />
+        <result column="recommend_status" property="recommendStatus" />
+        <result column="sort" property="sort" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="create_uid" property="createUid" />
+        <result column="create_uname" property="createUname" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="enable" property="enable" />
+        <result column="merchant_id" property="merchantId" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, product_id, product_name, recommend_status, sort, gmt_create, gmt_modified, create_uid, create_uname, modified_uid, modified_uname, enable, merchant_id
+    </sql>
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="HomeResultMap" type="com.msb.dongbao.pms.model.dto.HomeRecommendProductDTO">
+        <id column="id" property="id" />
+        <result column="product_id" property="productId" />
+        <result column="product_name" property="productName" />
+        <result column="recommend_status" property="recommendStatus" />
+        <result column="sort" property="sort" />
+        <result column="price" property="price" />
+        <result column="default_pic" property="defaultPic" />
+        <result column="sales_num" property="salesNum" />
+        <result column="rel_category3_id" property="relCategory3Id" />
+        <result column="rel_tenant_id" property="merchantId" />
+    </resultMap>
+
+    <!-- 查询首页人气商品信息 -->
+    <select id="selectRecommendProductsForHome" resultMap="HomeResultMap">
+        SELECT
+            hrp.id,
+            hrp.product_id,
+            hrp.recommend_status,
+            hrp.sort,
+            p.product_name,
+            p.default_pic,
+            p.sales_num,
+            p.price,
+            p.rel_category3_id,
+            p.rel_tenant_id
+        FROM
+            `home_recommend_product` hrp
+            LEFT JOIN product p ON hrp.product_id = p.id
+        WHERE hrp.recommend_status = 1
+            LIMIT 10;
+    </select>
+
+
+</mapper>

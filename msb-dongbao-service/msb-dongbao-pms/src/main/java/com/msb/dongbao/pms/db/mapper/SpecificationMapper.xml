@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.msb.dongbao.pms.db.dao.SpecificationDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.msb.dongbao.pms.model.entity.Specification">
+        <id column="id" property="id" />
+        <result column="name" property="name" />
+        <result column="rel_category_id" property="relCategoryId" />
+        <result column="rel_spec_type_id" property="relSpecTypeId" />
+        <result column="gmt_create" property="gmtCreate" />
+        <result column="gmt_modified" property="gmtModified" />
+        <result column="enabled" property="enabled" />
+        <result column="modified_uid" property="modifiedUid" />
+        <result column="create_uid" property="createUid" />
+        <result column="modified_uname" property="modifiedUname" />
+        <result column="create_uname" property="createUname" />
+    </resultMap>
+
+    <!-- 商品检索规格条件结果 -->
+    <resultMap id="productSearchConditionMap" type="com.msb.dongbao.pms.model.dto.ProductSearchConditionDTO">
+        <id column="id" property="specId"/>
+        <result column="name" property="specName"/>
+        <collection property="optionList"
+                    fetchType="lazy"
+                    select="com.msb.dongbao.pms.db.dao.SpecificationOptionDao.findListBySpecId"
+                    column="id">
+        </collection>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, name, rel_category_id, rel_spec_type_id, gmt_create, gmt_modified, enabled, modified_uid, create_uid, modified_uname, create_uname
+    </sql>
+
+
+    <select id="findWithOptionByCategoryId" resultMap="productSearchConditionMap">
+        SELECT * FROM `specification` WHERE  rel_category_id = #{categoryId}
+    </select>
+
+</mapper>
